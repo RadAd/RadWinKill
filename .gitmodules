@@ -1,0 +1,3 @@
+[submodule "RadCpp"]
+	path = RadCpp
+	url = https://github.com/RadAd/RadCpp.git
