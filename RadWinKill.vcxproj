@@ -72,6 +72,7 @@
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Windowxx.h" />
   </ItemGroup>
@@ -79,6 +80,12 @@
     <ProjectReference Include="RadCpp\RadCpp.vcxproj">
       <Project>{a4b64531-0f64-42b6-a492-fd63106f217e}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RadWinKill.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="RadWinKill.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
