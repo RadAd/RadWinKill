@@ -1,6 +1,5 @@
-<!-- ![Icon](res/RadWinKill.ico) RadWinKill -->
-<!-- <img src="res/RadWinKill.ico" width=32/> -->
-RadWinKill
+<!-- ![Icon](RadWinKill.ico) RadWinKill -->
+<img src="RadWinKill.ico" width=32/>RadWinKill
 ==========
 
 Shortcut to kill foreground application
