@@ -5,6 +5,9 @@
 #include <Rad/Win32/Deleter.h>
 #include <Rad/Win32/Win32Error.h>
 #include <Psapi.h>
+#include "resource.h"
+
+extern HINSTANCE g_hInstance;
 
 static TCHAR sTitle[] = TEXT("Rad Win Kill");
 
@@ -75,7 +78,17 @@ void RootWindow::OnHotKey(int idHotKey, UINT fuModifiers, UINT vk)
 
         SetForegroundWindow(*this);
         std::wstring msg = Format(TEXT("Kill window '%s' from process [%d] '%s', are you sure?"), title, pid, module);
-        if (MessageBox(*this, msg.c_str(), sTitle, MB_OKCANCEL | MB_ICONEXCLAMATION) == IDOK)
+
+        MSGBOXPARAMS mbp;
+        mbp.cbSize = sizeof(mbp);
+        mbp.hwndOwner = *this;
+        mbp.lpszCaption = sTitle;
+        mbp.lpszText = msg.c_str();
+        mbp.dwStyle = MB_OKCANCEL | MB_USERICON;
+        mbp.hInstance = g_hInstance;
+        mbp.lpszIcon = MAKEINTRESOURCE(IDI_ICON1);
+
+        if (MessageBoxIndirect(&mbp) == IDOK)
         {
             if (!TerminateProcess(hProcess.get(), 9999))
             {
